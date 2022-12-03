@@ -1,0 +1,40 @@
+{
+  "name": "myfatoorah-payment",
+  "version": "1.0.0",
+  "description": "JS package for payment integration with express applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf -rf ./dist && tsc",
+    "dev": "nodemon ./src/index.ts",
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier --write src/**/*ts",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "myfattorah",
+    "payment",
+    "integration",
+    "node",
+    "express"
+  ],
+  "author": "Kareem Fouad <kareemfouad27@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^18.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "axios": "^1.2.0",
+    "crypto": "^1.0.1"
+  }
+}
