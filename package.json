@@ -1,11 +1,18 @@
 {
   "name": "myfatoorah-payment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kareemwezza/myfatoorah-payment.git"
+  },
   "version": "1.0.0",
   "description": "JS package for payment integration with express applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rimraf -rf ./dist && tsc",
+    "build": "rimraf -rf ./dist && npm run format && tsc",
     "dev": "nodemon ./src/index.ts",
     "start": "npm run build && node ./dist/index.js",
     "format": "prettier --write src/**/*ts",
