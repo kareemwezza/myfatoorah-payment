@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/kareemwezza/myfatoorah-payment.git"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JS package for payment integration with express applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

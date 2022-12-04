@@ -34,6 +34,18 @@ const payment = new MyFatoorah('EGY', false, process.env.PAYMENT_TOKEN);
 
 ```
 
+## Response Model
+This showing what the model of the response should be returned from all the methods used below.
+
+```
+  {
+  IsSuccess: boolean,
+  Message: string,
+  ValidationErrors: [{ Name: string, Error: string }] || null,
+  Data: {},
+  }
+```
+
 ## Methods
 
 > **Initiate Payment**
@@ -81,6 +93,78 @@ payment.executePayment(1000, 11, {
    CustomerMobile: "12345678",
    CustomerEmail: "mail@company.com",
 }).then((data) => data).catch(err => err);
+```
+
+> **Get the Status of payments**
+
+return the status of the payment id or invoice id, [More Details](https://myfatoorah.readme.io/docs/get-payment-status)
+
+```
+payment.getPaymentStatus(key, keyType)
+
+// available keyTypes for payment inquiry
+// 'InvoiceId' | 'PaymentId' | 'CustomerReference'
+
+// example:
+payment.getPaymentStatus('613842', 'InvoiceId').then((data) => data).catch(err => err);
+```
+
+> **Make a Refund request**
+
+Need to cancel the payment and return the funds to the customer.
+The funds will be returned to the credit or debit card that was originally charged.[More details](https://myfatoorah.readme.io/docs/refund)
+
+```
+payment.makeRefund(refundRequestObject);
+
+// available keyTypes for Refund request
+// 'InvoiceId' | 'PaymentId'
+
+// example:
+payment.makeRefund({
+  KeyType: "invoiceid",
+  Key: "94272",
+  RefundChargeOnCustomer: false,
+  ServiceChargeOnCustomer: false,
+  Amount: 210,
+  Comment: "Test Api",
+  AmountDeductedFromSupplier: 0
+}).then((data) => data).catch(err => err);
+```
+
+> **Get status of a refund Request**
+
+It is used to get the status of the refund to check if it is refunded, rejected, or still pending. [More Details](https://myfatoorah.readme.io/docs/getrefundstatus)
+
+```
+payment.getRefundStatus(key, keyType);
+
+// available keyTypes for Refund status
+// 'InvoiceId' | 'RefundReference' | 'RefundId';
+
+payment.getRefundStatus('1647850', 'InvoiceId')
+.then((data) => data).catch(err => err);
+```
+
+> **Webhooks Signature Validation**
+
+validate the signature of all requests sent from my fatoorah to your webhook endpoint.
+you can get your `myFatoorahSecret` from account settings in webhooks section if enabled.
+
+```
+// commonJS
+const { validateSignature } = require('myfatoorah-toolkit');
+
+// ES6
+import { validateSignature } from 'myfatoorah-toolkit';
+
+const MYFATOORAH_SIGNATURE = req.get("MyFatoorah-Signature");
+
+validateSignature(body: requestBody, MYFATOORAH_SIGNATURE, myFatoorahSecret)
+.then((result) => {
+    // go with your own logic here
+}).catch((err) => // bad signature);
+
 ```
 
 Best of Luck 😋😎

@@ -1,7 +1,7 @@
 export interface IResponse {
   IsSuccess: boolean;
   Message: string;
-  ValidationErrors: IValidationError | null;
+  ValidationErrors: IValidationError[] | null;
   Data: object;
 }
 
