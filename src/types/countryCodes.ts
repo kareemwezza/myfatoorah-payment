@@ -1,6 +1,6 @@
 export type TCountryCodes = 'KWT' | 'SAU' | 'BHR' | 'ARE' | 'QAT' | 'OMN' | 'JOD' | 'EGY';
 
-enum EMobileCountryCode {
+export enum EMobileCountryCode {
   'KWT' = '+965',
   'SAU' = '+966',
   'BHR' = '+973',

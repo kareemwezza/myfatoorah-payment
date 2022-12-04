@@ -8,6 +8,9 @@ export const TEST_TOKEN =
 
 export const endpoints = {
   initiate: '/v2/InitiatePayment',
+  sendPayment: '/v2/SendPayment',
   execute: '/v2/ExecutePayment',
-  paymentStatus: '/v2/getPaymentStatus'
+  paymentStatus: '/v2/getPaymentStatus',
+  makeRefund: '/v2/MakeRefund',
+  refundStatus: '/v2/getRefundStatus'
 };
