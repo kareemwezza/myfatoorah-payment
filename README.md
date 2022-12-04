@@ -9,10 +9,10 @@ in your terminal run `npm i myfatoorah-toolkit` command or `yarn add myfatoorah-
 > Import library to your project directory.
 ```
 // CommonJS version
-const Myfatoorah = require('myfatoorah-toolkit');
+const { Myfatoorah } = require('myfatoorah-toolkit');
 
 // ES6 version
-import MyFatoorah from 'myfatoorah-toolkit'
+import { MyFatoorah } from 'myfatoorah-toolkit'
 ```
 
 > Create A new Instance of `MyFatoorah`.
