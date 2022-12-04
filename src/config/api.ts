@@ -14,9 +14,9 @@ export const createApiInstance = (apiUrl: string, apiTokenKey: string) => {
 
 export const handleAxiosError = (error: any): IResponse => {
   if (error.response || error.request) {
-    console.log('%c Error while processing your request from myfatoorah', 'color: red');
+    console.log('%c Error while processing your request from myfatoorah', 'color: ##ff0000');
     return error.response?.data || error.response?.statusText;
   }
-  console.log('%c Error has occurred', error, 'color: red');
+  console.log('%c Error has occurred', error, 'color: ##ff0000');
   process.exit(1);
 };

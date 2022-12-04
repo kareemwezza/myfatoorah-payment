@@ -1,6 +1,3 @@
-import { IResponse } from './types/IResponse';
-
-export { validateSignature } from './helpers/validateSignature';
 import { AxiosInstance } from 'axios';
 import {
   createApiInstance,
